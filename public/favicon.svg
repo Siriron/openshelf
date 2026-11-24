@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="OpenShelf">
+  <rect width="64" height="64" rx="14" fill="#1f4d3f"/>
+  <rect x="11" y="16" width="9" height="30" rx="1.5" fill="#f3ead8"/>
+  <rect x="22" y="12" width="9" height="34" rx="1.5" fill="#e0a94a"/>
+  <rect x="33" y="19" width="9" height="27" rx="1.5" fill="#f3ead8"/>
+  <rect x="44" y="14" width="9" height="32" rx="1.5" fill="#c9553a" transform="rotate(8 48 30)"/>
+  <rect x="8" y="48" width="48" height="4" rx="2" fill="#f3ead8"/>
+</svg>
