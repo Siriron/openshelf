@@ -16,7 +16,7 @@ export function Home() {
           <Link className="btn secondary" to="/guide">Walk through a test</Link>
           <Link className="btn ghost" to="/docs">How it works</Link>
         </div>
-        {!IS_DEPLOYED && <p className="notice">Not deployed yet: the contract address in <code>src/config/chains.ts</code> is empty, so the app is read-only until it is set.</p>}
+        {!IS_DEPLOYED && <p className="notice">X</p>}
       </section>
 
       <section className="cards three">

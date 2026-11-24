@@ -1,8 +1,8 @@
 # Deployment
 
-**Status: not deployed.** No address is claimed anywhere in this repository.
+**Status: deployed to StudioNet** at `0xc255bFb1Dd218Dc6e71b21654CBC785c82070348` ([explorer](https://explorer-studio.genlayer.com/address/0xc255bFb1Dd218Dc6e71b21654CBC785c82070348)). The Vercel frontend is not deployed yet; no live filing has been run.
 
-1. Deploy `contracts/openshelf.py` to StudioNet from studio.genlayer.com (no constructor arguments).
+1. Redeploying: deploy `contracts/openshelf.py` from studio.genlayer.com (no constructor arguments).
 2. Paste the address into `src/config/chains.ts` (`CONTRACT_ADDRESS`), commit.
 3. Deploy the frontend on Vercel (`vercel.json` already contains the SPA rewrite).
 

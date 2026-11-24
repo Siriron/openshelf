@@ -1,6 +1,5 @@
-// The one place the deployed contract address lives. Empty until the contract is deployed to StudioNet:
-// paste the address between the quotes, nothing else needs to change.
-export const CONTRACT_ADDRESS: string = '';
+// The one place the deployed contract address lives (StudioNet).
+export const CONTRACT_ADDRESS: string = '0xc255bFb1Dd218Dc6e71b21654CBC785c82070348';
 
 export const IS_DEPLOYED = CONTRACT_ADDRESS.length > 0;
 

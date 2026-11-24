@@ -83,7 +83,7 @@ Each term is `MET` or `NOT_MET`, and the payout is a deterministic function of h
 
 | Network | Address | Explorer |
 |---|---|---|
-| StudioNet | not deployed yet | n/a |
+| StudioNet | `0xc255bFb1Dd218Dc6e71b21654CBC785c82070348` | [View](https://explorer-studio.genlayer.com/address/0xc255bFb1Dd218Dc6e71b21654CBC785c82070348) |
 
 StudioNet is a temporary test network: deployed addresses may not survive resets. The repository tests below are the proof of behavior, not the address.
 
@@ -142,7 +142,7 @@ LICENSE                            MIT
 
 </div>
 
-107 direct-mode tests pass (`pytest tests -q -p no:cacheprovider`), `genvm-lint check` and `typecheck` report 0 errors, and the frontend type-checks and builds. The tests load the real contract and run its real leader and validator functions, mocking only Zenodo and the model; planted bugs (a wrong status attribute, a validator that skips term comparison, a removed token gate, a removed identity echo, a payout off-by-one, a claim that does not zero the balance) were each shown to fail the suite. They do **not** prove real model behavior, the live Zenodo payload beyond its documented fields, or real multi-node timing. The contract has not been deployed or exercised on a live network, and the frontend has not been run against one.
+107 direct-mode tests pass (`pytest tests -q -p no:cacheprovider`), `genvm-lint check` and `typecheck` report 0 errors, and the frontend type-checks and builds. The tests load the real contract and run its real leader and validator functions, mocking only Zenodo and the model; planted bugs (a wrong status attribute, a validator that skips term comparison, a removed token gate, a removed identity echo, a payout off-by-one, a claim that does not zero the balance) were each shown to fail the suite. They do **not** prove real model behavior, the live Zenodo payload beyond its documented fields, or real multi-node timing. The contract is deployed to StudioNet but has not yet been exercised by a live filing, and the frontend has not been run against it.
 
 <br />
 
