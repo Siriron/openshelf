@@ -56,6 +56,7 @@ from genlayer import *
 from dataclasses import dataclass
 import json
 import re
+from typing import NoReturn
 
 
 MET, NOT_MET = "MET", "NOT_MET"
@@ -81,11 +82,11 @@ _DAYS_IN_MONTH = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 # Generic helpers
 # ---------------------------------------------------------------------------
 
-def _fail(text):
+def _fail(text) -> NoReturn:
     raise gl.vm.UserError(E_EXP + " " + text)
 
 
-def _transient(text):
+def _transient(text) -> NoReturn:
     raise gl.vm.UserError(E_TRANS + " " + text)
 
 
@@ -298,9 +299,10 @@ def record_from(data, rid, token):
         _fail("the record carries no metadata")
     title = _sanitize(str(md.get("title", "")), 140)
     desc_full = _plain_text(md.get("description", ""), 20000)
-    kws = md.get("keywords") if isinstance(md.get("keywords"), list) else []
-    kws = [_sanitize(str(k), 40) for k in kws][:20]
-    creators = md.get("creators") if isinstance(md.get("creators"), list) else []
+    raw_kws = md.get("keywords")
+    kws = [_sanitize(str(k), 40) for k in (raw_kws if isinstance(raw_kws, list) else [])][:20]
+    raw_creators = md.get("creators")
+    creators = raw_creators if isinstance(raw_creators, list) else []
     names = [_sanitize(str(c.get("name", "")), 60) for c in creators if isinstance(c, dict)][:10]
     files = _files_of(data)
     hay = (title + " " + desc_full + " " + " ".join(kws)).lower()
@@ -384,8 +386,8 @@ def judge(rid, terms, not_before, token):
     for r in results:
         s = str(r).strip().upper().replace(" ", "_").replace("-", "_")
         statuses.append(MET if s == MET else NOT_MET)
-    reasons = raw.get("reasons") if isinstance(raw.get("reasons"), list) else []
-    reasons = [_sanitize(str(x), MAX_REASON) for x in reasons][:len(terms)]
+    raw_reasons = raw.get("reasons")
+    reasons = [_sanitize(str(x), MAX_REASON) for x in (raw_reasons if isinstance(raw_reasons, list) else [])][:len(terms)]
     return {"record": rec, "statuses": statuses, "reasons": reasons,
             "note": _sanitize(str(raw.get("note", "")), MAX_NOTE)}
 
